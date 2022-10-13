@@ -1,5 +1,8 @@
 # scripts
 
+Run these commands to get started
+
 ```bash
-wget https://raw.githubusercontent.com/rhysjamesmason/scripts/main/index.py && sudo python3 index.py
+git clone https://github.com/rhysjamesmason/scripts.git && cd scripts
+sudo python3 index.py
 ```
