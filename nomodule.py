@@ -132,20 +132,21 @@ def PMSWEBMIN():
     os.system("sudo apt install software-properties-common apt-transport-https -y")
     print(
         " INFO [PMS | WEBMIN | Ubuntu]: "
-        + " Enable Webmin Repository."
+        + " Getting the debian file."
     )
     os.system(
-        'sudo add-apt-repository "deb [arch=amd64] http://download.webmin.com/download/repository sarge contrib"'
+        'wget https://netix.dl.sourceforge.net/project/webadmin/webmin/2.000/webmin_2.000_all.deb'
     )
     print(
         " INFO [PMS | WEBMIN | Ubuntu]: "
         + " Installing 'Webmin'."
     )
-    os.system("sudo apt install webmin -y")
+    os.system("sudo dpkg -i webmin_2.000_all.deb")
     print(
         " INFO [PMS | WEBMIN | Ubuntu]: "
         + " Configuring the firewall."
     )
+    os.system("sudo ufw enable")
     os.system("sudo ufw allow 10000/tcp")
     print(
         " INFO [PMS | WEBMIN | Ubuntu]: "
