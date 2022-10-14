@@ -129,7 +129,7 @@ def PMSWEBMIN():
         " INFO [PMS | WEBMIN | Ubuntu]: "
         + " Installing 'software-properties-common, apt-transport-https'."
     )
-    os.system("sudo apt install software-properties-common apt-transport-https -y")
+    os.system("sudo apt install software-properties-common apt-transport-https libauthen-pam-perl libio-pty-perl -y")
     print(
         " INFO [PMS | WEBMIN | Ubuntu]: "
         + " Getting the debian file."
