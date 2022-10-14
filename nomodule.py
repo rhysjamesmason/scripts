@@ -78,22 +78,18 @@ def UserManagementSystem():
 
         for group in outputUsers:
             for user in group[3]:
-                users.append(user)
+                print(user)
 
-        print(type(group[0]))
-        GROUP_OPTION_TITLE = "Select the user you want to manage:"
-        option, index = pick(users, GROUP_OPTION_TITLE)
+        input('Hit enter to exit...')
         pass
     elif option == "2":
         outputGroups = grp.getgrall()
         groups = ["Back to Menu"]
 
         for group in outputGroups:
-            groups.append(group[0])
-
-        print(type(group[0]))
-        GROUP_OPTION_TITLE = "Select the group you want to manage:"
-        option, index = pick(groups, GROUP_OPTION_TITLE)
+            print(group[0])
+            
+        input('Hit enter to exit...')
         pass
     elif option == "3":
         global active
@@ -274,11 +270,11 @@ option = str(input(OPTION_TITLE))
 
 # Check for the input
 if option == "1":
-    print(Fore.WHITE + Back.CYAN + " INFO [main | config]: " + Style.RESET_ALL + Style.BRIGHT + " DISTRO => Ubuntu" + Style.RESET_ALL)
+    print(" INFO [main | config]: " + " DISTRO => Ubuntu")
     os.system('clear')
     UbuntuMainThread()
 elif option == "2":
-    print(Fore.WHITE + Back.CYAN + " INFO [main | config]: " + Style.RESET_ALL + Style.BRIGHT + " DISTRO => Fedora" + Style.RESET_ALL)
+    print(" INFO [main | config]: " + " DISTRO => Fedora")
 
 
 # Pause the script
