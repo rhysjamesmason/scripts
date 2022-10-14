@@ -1,8 +1,6 @@
 # Imports to the script
 import os
-from colorama import Fore, Back, Style
 from sys import platform
-from pick import pick
 # from modules.ubuntu import UbuntuMainThread
 
 # Ubuntu.py
