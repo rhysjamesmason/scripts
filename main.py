@@ -24,16 +24,33 @@ def ProgramManageSystem():
         bcolors.BOLD + "Finished" + bcolors.ENDC,
     ]
 
-    print(bcolors.OKCYAN + " 1: " + bcolors.ENDC + OPTION_OPTIONS[0])
-    print(bcolors.OKCYAN + " 2: " + bcolors.ENDC + OPTION_OPTIONS[1])
-    print(bcolors.OKCYAN + " 3: " + bcolors.ENDC + OPTION_OPTIONS[2])
+    if programSSH == False and programWebmin == False:
+        print(bcolors.OKCYAN + " 1: " + bcolors.ENDC + OPTION_OPTIONS[0])
+        print(bcolors.OKCYAN + " 2: " + bcolors.ENDC + OPTION_OPTIONS[1])
+        print(bcolors.OKCYAN + " 3: " + bcolors.ENDC + OPTION_OPTIONS[2])
+    elif programSSH == True and programWebmin == False:
+        print(bcolors.OKGREEN + " ✔️ 1: " + bcolors.ENDC + OPTION_OPTIONS[0])
+        print(bcolors.OKCYAN + " 2: " + bcolors.ENDC + OPTION_OPTIONS[1])
+        print(bcolors.OKCYAN + " 3: " + bcolors.ENDC + OPTION_OPTIONS[2])
+    elif programSSH == False and programWebmin == True:
+        print(bcolors.OKCYAN + " 1: " + bcolors.ENDC + OPTION_OPTIONS[0])
+        print(bcolors.OKGREEN + " ✔️ 2: " + bcolors.ENDC + OPTION_OPTIONS[1])
+        print(bcolors.OKCYAN + " 3: " + bcolors.ENDC + OPTION_OPTIONS[2])
+    else:
+        print(bcolors.OKGREEN + " ✔️ 1: " + bcolors.ENDC + OPTION_OPTIONS[0])
+        print(bcolors.OKGREEN + " ✔️ 2: " + bcolors.ENDC + OPTION_OPTIONS[1])
+        print(bcolors.OKCYAN + " 3: " + bcolors.ENDC + OPTION_OPTIONS[2])
     
     option = str(input(OPTION_TITLE))
 
     if option == "1":
         PMSSSH()
+        global programSSH
+        programSSH = True
     elif option == "2":
         PMSWEBMIN()
+        global programWebmin
+        programWebmin = True
     elif option == "3":
         global active
         active = False
@@ -60,6 +77,8 @@ def UbuntuMainThread():
 
     global active
     active = True
+    programSSH = False
+    programWebmin = False
 
     print(f"{osPre} Starting Program Management System (PMS)...")
     while active:
@@ -75,7 +94,7 @@ if platform == "linux" or platform == "linux2":
     os.system('clear')
     print("\n")
 else:
-    print(" ERROR [main]: " + " This script does not support Windows. ")
+    print(f"{bcolors.FAIL}ERROR:{bcolors.ENDC} This script does not support Windows. ")
     exit(0)
 
 print(f"{mainPre} The script is initializing")
